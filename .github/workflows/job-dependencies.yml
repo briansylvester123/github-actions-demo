@@ -24,18 +24,18 @@ jobs:
         with:
           name: dist-files
           path: dist
-        
-    deploy:
-        runs-on: ubuntu-latest
-        needs: build
-        steps:
-          - name: Download artifact
-            uses: actions/download-artifact@v4
-            with:
-              name: dist-files
-              path: dist
-          - name: Deploy project
-            run: |
-              echo "Deploying project..."
-              ls -R dist
-              echo "Deployment successful!"
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: dist-files
+          path: dist
+      - name: Deploy project
+        run: |
+          echo "Deploying project..."
+          ls -R dist
+          echo "Deployment successful!"
